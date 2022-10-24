@@ -1,0 +1,81 @@
+.Dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.Header {
+    background-color: #cccccc88;
+    height: 6rem;
+    width: 100%;
+    display: flex;
+}
+
+.Header > img {
+    height: 5rem;
+    padding: 0.5em;
+}
+
+.Header h1 {
+    margin: 0;
+    line-height: 6rem;
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ccc;
+    cursor: default;
+    user-select: none;  
+}
+
+.Userpanel {
+    height: 100%;
+    background-color: #cccccc77;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    display: inline-block;
+    padding: 0;
+}
+
+.Userpanel .UserPanelBox {
+    display: flex;
+}
+
+.Userpanel img {
+    height: 4rem;
+    padding: 1rem;
+}
+
+.FullName {
+    line-height: 6rem;
+    font-size: 2rem;
+    color: #333;
+    padding: 0 1rem 0 1rem;
+    font-weight: bold;
+}
+
+.Userpanel-Dropdown-Content {
+    display: none;
+    position: absolute;
+    border: none;
+    right: 0;
+    width: 20rem;
+}
+
+.Userpanel:focus-within > .Userpanel-Dropdown-Content {
+    display: block;
+}
+
+.Userpanel-Dropdown-Content button {
+    width: 20rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 1.7rem;
+    border: none;
+    cursor: pointer;
+    background-color: #cccccc88;
+    transition: background-color 0.2s;
+}
+
+.Userpanel-Dropdown-Content button:hover {
+    background-color: #cccccc;
+}
+

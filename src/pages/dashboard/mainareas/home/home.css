@@ -1,0 +1,18 @@
+.Home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Home img{
+    width: 10em;
+    opacity: 0.2;
+}
+
+.Home span{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ccc;
+    user-select: none;
+}
