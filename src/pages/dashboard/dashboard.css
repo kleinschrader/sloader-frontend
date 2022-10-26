@@ -79,3 +79,36 @@
     background-color: #cccccc;
 }
 
+.TargetEntry {
+    height: 5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas: 'img title'
+        'img id';
+    border: solid #ccc;
+    border-width: 0 0 2px 0;
+}
+
+.TargetEntry img {
+    height: 3rem;
+    margin: 1rem;
+    grid-area: img;
+}
+
+.TargetEntry .TargetEntryName {
+    line-height: 3rem;
+    font-size: 2rem;
+    color: #ccc;
+    font-weight: bold;
+    text-align: right;
+    padding: 0 1rem 0 0;
+}
+
+.TargetEntry .TargetEntryID {
+    color: #cccccc77;
+    font-weight: bold;
+    text-align: right;
+    padding: 0 1rem 0 0;
+}

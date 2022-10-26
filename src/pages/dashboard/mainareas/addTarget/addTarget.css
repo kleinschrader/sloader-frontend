@@ -4,3 +4,77 @@
     justify-content: center;
     align-items: center;
 }
+
+.AddTarget form {
+    width: 30rem;
+}
+
+.AddTarget label {
+    width: calc(100% - 1rem);
+    margin: 0 1em 1em 1em;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.AddTarget input {
+    width: calc(100% - 1rem);
+    margin: 0 1em 1em 1em;
+    background-color: #333;
+    border: 2px solid #000;
+    line-height: 3rem;
+    font-weight: 3rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    color: #ccc;
+    font-weight: bold;
+}
+
+.DirectoryPicker {
+    width: calc(100% - 1rem);
+    margin: 0 1em 1em 1em;
+    background-color: #333;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    color: #ccc;
+    height: 20rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.DirectoryList {
+    height: 2rem;
+    border: solid #ccc;
+    border-width: 0 0 2px 0;
+    padding: 0 0 0.2em 0;
+
+}
+
+.DirectoryList button {
+    height: 2rem;
+    border: none;
+    background: none;
+    color: #ccc;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-decoration: underline;
+}
+
+.DirectoryEntries {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.DirectoryEntry {
+    background: none;
+    border: solid #ccc;
+    border-width: 0 0 2px 0;
+    width: 100%;
+    color: #ccc;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}

@@ -96,15 +96,26 @@ function TargetList(props) {
         addTargetButton = {}
     }
 
-    let targetList;
+    let targetList = [];
     if (props.targets.length === 0) {
-        targetList = (
-            <div className='NaggerEmpty'>
+        targetList.push((
+            <div className='NaggerEmpty' key="none">
                 <span>Its so empty here...</span>
                 <br/>
                 <span>Liven it up a bit by adding targets!</span>
             </div>
-        )
+        ))
+    }
+    else {
+        props.targets.forEach(e => {
+            targetList.push((
+                <div className="TargetEntry" key={e.target_id}>
+                    <img src="/hdd.svg" alt=""/>
+                    <span className="TargetEntryName">{e.nick_name}</span>
+                    <span className="TargetEntryID">{e.target_id}</span>
+                </div>
+            ))
+        })
     }
 
     return (
