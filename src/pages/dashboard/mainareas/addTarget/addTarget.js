@@ -1,6 +1,6 @@
-import {ma_setto, selectMainArea} from './../../../../features/mainAreaState/mainAreaSlice.js';
+import {ma_setto} from './../../../../features/mainAreaState/mainAreaSlice.js';
 import { useDispatch } from 'react-redux';
-import React, { useState } from 'react';
+import React from 'react';
 
 import {API_SERVER} from './../../../../config'
 
@@ -23,7 +23,7 @@ function AddTarget() {
             body: JSON.stringify(requestBody),
         })
 
-        dispatch(ma_setto('home'));
+        dispatch(ma_setto('{"state":"home"}'));
     }
 
     return (

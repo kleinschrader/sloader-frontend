@@ -89,6 +89,12 @@
         'img id';
     border: solid #ccc;
     border-width: 0 0 2px 0;
+    background-color: #cccccc00;
+    cursor: pointer;
+}
+
+.TargetEntry:hover {
+    background-color: #cccccc33;
 }
 
 .TargetEntry img {

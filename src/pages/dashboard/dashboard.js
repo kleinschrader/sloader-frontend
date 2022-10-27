@@ -9,6 +9,7 @@ import {API_SERVER} from './../../config'
 //mainareas
 import Home from './mainareas/home';
 import AddTarget from './mainareas/addTarget';
+import Data from './mainareas/data';
 
 function Dashboard() {
 
@@ -19,7 +20,7 @@ function Dashboard() {
             method: "GET",
             credentials: 'include'
         }).finally(() => {
-            dispatch(setto("login"))
+            dispatch(setto("{\"state\":\"login\"}"))
         })
     }
 
@@ -81,7 +82,7 @@ function TargetList(props) {
     let addTargetButton;
 
     let addTargetHander = function() {
-       dispatch(ma_setto("add_target"))
+       dispatch(ma_setto("{\"state\":\"add_target\"}"))
     }
 
     if (window.localStorage.getItem('admin') === 'true') {
@@ -94,6 +95,17 @@ function TargetList(props) {
     }
     else {
         addTargetButton = {}
+    }
+
+    let targetDataHandler = function(e, uuid) {
+        e.preventDefault();
+        
+        let dispatchValue = {
+            state: 'data',
+            uuid: uuid,
+        }
+
+        dispatch(ma_setto(JSON.stringify(dispatchValue)))
     }
 
     let targetList = [];
@@ -109,11 +121,11 @@ function TargetList(props) {
     else {
         props.targets.forEach(e => {
             targetList.push((
-                <div className="TargetEntry" key={e.target_id}>
+                <button className="TargetEntry" key={e.target_id} onClick={ev => {targetDataHandler(ev, e.target_id)}}>
                     <img src="/hdd.svg" alt=""/>
                     <span className="TargetEntryName">{e.nick_name}</span>
                     <span className="TargetEntryID">{e.target_id}</span>
-                </div>
+                </button>
             ))
         })
     }
@@ -131,14 +143,17 @@ function TargetList(props) {
 function MainArea() {
     const mainAreaState = useSelector(selectMainArea);
 
+    const mainAreaStateParsed = JSON.parse(mainAreaState);
 
-    switch (mainAreaState) {
+    switch (mainAreaStateParsed.state) {
         case "home": 
             return (<Home/>)
         case "add_target":
             return (<AddTarget/>)
+        case "data":
+            return (<Data target_id={mainAreaStateParsed.uuid}/>)
         default:
-            return (<span>MAINAREA {mainAreaState} not defined</span>)
+            return (<span>MAINAREA {mainAreaStateParsed.state} not defined</span>)
     }
 }
 

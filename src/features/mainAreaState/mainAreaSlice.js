@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: "home",
+  value: "{\"state\":\"home\"}",
 };
 
 export const mainAreaSlice = createSlice({
