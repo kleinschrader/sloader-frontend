@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import {setto} from './../../features/globalState/globalStateSlice';
 import {ma_setto, selectMainArea} from './../../features/mainAreaState/mainAreaSlice.js';
 
-import {API_SERVER} from './../../config'
-
 //mainareas
 import Home from './mainareas/home';
 import AddTarget from './mainareas/addTarget';
@@ -16,7 +14,7 @@ function Dashboard() {
     const dispatch = useDispatch();
 
     let logoutFunction = function() {
-        fetch(API_SERVER + '/logout', {
+        fetch(window.api_server + '/logout', {
             method: "GET",
             credentials: 'include'
         }).finally(() => {
@@ -57,7 +55,7 @@ function MainAreaContainer() {
     const [targets, setTargets] = useState(undefined);
 
     if(targets === undefined) {
-        fetch(API_SERVER + '/targets', {
+        fetch(window.api_server + '/targets', {
             method: 'GET',
             credentials: 'include',
         }).then(r => {

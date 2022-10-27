@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux';
 import {setto} from './../../features/globalState/globalStateSlice';
 
 
-import {API_SERVER} from './../../config'
-
 function ErrorDisplay(props) {
     if (props.message) {
         return (
@@ -27,7 +25,7 @@ function LoginPage() {
             password: document.getElementById('password').value,
         }
     
-        fetch(API_SERVER + '/login', {
+        fetch(window.api_server + '/login', {
             method: "POST",
             body: JSON.stringify(requestBody),
             credentials: "include",

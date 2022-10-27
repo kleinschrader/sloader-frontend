@@ -1,7 +1,5 @@
-import {API_SERVER} from './config'
-
 async function checkLoginState() {
-    const url = API_SERVER + '/loginState';
+    const url = window.api_server + '/loginState';
     return fetch(url, {
         method: 'GET',
         credentials: 'include',

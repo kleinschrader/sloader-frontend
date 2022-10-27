@@ -13,8 +13,15 @@ function App() {
   const globalState = useSelector(selectGlobalPage);
   const dispatch = useDispatch();
 
-
-  checkLoginState().then(r => {
+  fetch('/apiserver.txt').then(r=> {
+    return r.text()
+  }).then(r => {
+    window.api_server = r;
+  }).then(
+    () => {
+      return checkLoginState()
+    }
+  ).then(r => {
     return r.json();
   }).then(r => {
     if(r.authenticated === false) {
@@ -25,7 +32,7 @@ function App() {
       dispatch(setto("dashboard"));
     }
   }) 
-  
+
   switch (globalState) {
     case 'dashboard':
       return (

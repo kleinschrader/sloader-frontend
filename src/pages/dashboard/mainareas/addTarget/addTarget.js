@@ -2,8 +2,6 @@ import {ma_setto} from './../../../../features/mainAreaState/mainAreaSlice.js';
 import { useDispatch } from 'react-redux';
 import React from 'react';
 
-import {API_SERVER} from './../../../../config'
-
 function AddTarget() {
     const dispatch = useDispatch();
 
@@ -17,7 +15,7 @@ function AddTarget() {
         requestBody.path = document.getElementById("DirectoryPicker").attributes["value"].value;
 
         
-        fetch(API_SERVER + '/createTarget', {
+        fetch(window.api_server + '/createTarget', {
             method: "POST",
             credentials: "include",
             body: JSON.stringify(requestBody),
@@ -70,7 +68,7 @@ class DirectoryPicker extends React.Component {
 
 
         
-        fetch(API_SERVER + '/directories/' + encodeURIComponent(dirString), {
+        fetch(window.api_server + '/directories/' + encodeURIComponent(dirString), {
             credentials: 'include'
         }).then(r => {
             return r.json();

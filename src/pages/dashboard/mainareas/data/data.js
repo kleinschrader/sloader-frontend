@@ -1,6 +1,5 @@
 import React from "react";
 
-import {API_SERVER} from './../../../../config'
 import {filesize} from "filesize";
 
 class Data extends React.Component {
@@ -39,7 +38,7 @@ class Data extends React.Component {
 
         const target_sub_uri = `/contents/${this.props.target_id}/${encodeURIComponent(assembled_path)}`;
 
-        fetch(API_SERVER + target_sub_uri, {
+        fetch(window.api_server + target_sub_uri, {
             method: "GET",
             credentials: "include"
         }).then(r => {
@@ -84,7 +83,7 @@ class Data extends React.Component {
 
             let assembled_path = this.assemblePath() + filename;
 
-            window.location.assign(API_SERVER + '/download/' + this.props.target_id + '/' + encodeURIComponent(assembled_path));
+            window.location.assign(window.api_server + '/download/' + this.props.target_id + '/' + encodeURIComponent(assembled_path));
         }.bind(this);
 
         this.state.files.forEach(e => {
@@ -127,7 +126,7 @@ class Data extends React.Component {
 
             let total_path = this.assemblePath() + name;
 
-            let submit_api = API_SERVER + '/upload/' + this.props.target_id + '/' + encodeURIComponent(total_path);
+            let submit_api = window.api_server + '/upload/' + this.props.target_id + '/' + encodeURIComponent(total_path);
 
             e.target.parentElement.setAttribute("action",submit_api);
             e.target.parentElement.submit();
